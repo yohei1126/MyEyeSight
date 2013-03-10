@@ -2,7 +2,7 @@
 #define DEVICE_ISONAR_SENSOR_H
 
 #include "Device/EPort.h"
-#include "include/MyTypes.h"
+#include "MyTypes.h"
 
 /*SonarSensor‚Ì‘®«’è‹`*/
 typedef struct SonarSensor {

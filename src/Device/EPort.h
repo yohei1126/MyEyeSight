@@ -6,7 +6,8 @@
  */
 typedef enum ESensorPort
 {
-	SENSOR_PORT_1 = 0,
+	SENSOR_PORT_NONE = 0,
+	SENSOR_PORT_1,
 	SENSOR_PORT_2,
 	SENSOR_PORT_3,
 	SENSOR_PORT_4

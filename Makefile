@@ -28,6 +28,7 @@ INCLUDE_DIRS =\
  	.\
  	src\
 	test\
+	include\
  	$(CPPUTEST_HOME)/include\
 
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
