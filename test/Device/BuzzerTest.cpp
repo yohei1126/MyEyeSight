@@ -1,5 +1,5 @@
 #include "CppUTest/TestHarness.h"
-#include "include/MyTypes.h"
+#include "MyTypes.h"
 
 extern "C" {
 #include "Device/IBuzzer.h"

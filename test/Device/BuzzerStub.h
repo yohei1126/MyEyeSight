@@ -3,6 +3,8 @@
 
 #include "MyTypes.h"
 
+void BuzzerStub_init(void);
+
 U32 BuzzerStub_getLastFrequency(void);
 
 U32 BuzzerStub_getLastOnInterval(void);

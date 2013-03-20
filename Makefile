@@ -22,6 +22,7 @@ SRC_DIRS = \
 
 TEST_SRC_DIRS = \
 	test\
+	test/AreaIndicator\
 	test/Device
 
 INCLUDE_DIRS =\

@@ -2,15 +2,21 @@
 #include "Device/BuzzerStub.h"
 #include "MyTypes.h"
 
-static U32 _freq;
-static U32 _onInterval;
-static U32 _volume;
+static U32 _freq = 0;
+static U32 _onInterval = 0;
+static U32 _volume = 0;
 
 /* ‰¹‚ð–Â‚ç‚· */
 void Buzzer_tone(U32 freq, U32 onInterval, U32 volume) {
 	_freq = freq;
 	_onInterval = onInterval;
 	_volume = volume;
+}
+
+void BuzzerStub_init(void){
+	_freq = 0;
+	_onInterval = 0;
+	_volume = 0;
 }
 
 U32 BuzzerStub_getLastFrequency(void) {
