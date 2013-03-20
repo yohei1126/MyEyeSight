@@ -4,7 +4,7 @@
 /**
  * @enum eSensorPort Enum for sensor ports.
  */
-typedef enum ESensorPort
+typedef enum _ESensorPort
 {
 	SENSOR_PORT_NONE = 0,
 	SENSOR_PORT_1,

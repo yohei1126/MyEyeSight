@@ -18,6 +18,7 @@ CPP_PLATFORM = Gcc
 SRC_DIRS = \
 	platform/win\
 	src\
+	src/AreaIndicator\
 	src/Device
 
 TEST_SRC_DIRS = \

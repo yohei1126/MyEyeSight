@@ -9,7 +9,7 @@ TEST_GROUP(SonarSensor) {
 	SonarSensor sonar;
 	void setup() {
 		SonarSensor_create(&sonar, SENSOR_PORT_1);
-		SonarSensorStub_setDistance(&sonar, 100);
+		SonarSensorStub_setDistance(&sonar, (S32)100);
 	}
 	void teardown(){
 	}

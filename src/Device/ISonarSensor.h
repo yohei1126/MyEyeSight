@@ -5,7 +5,7 @@
 #include "MyTypes.h"
 
 /*SonarSensor‚Ì‘®«’è‹`*/
-typedef struct SonarSensor {
+typedef struct _SonarSensor {
 	ESensorPort port;
 	S32 distance;
 } SonarSensor;

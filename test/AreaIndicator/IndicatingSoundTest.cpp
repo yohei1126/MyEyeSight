@@ -11,17 +11,15 @@ TEST_GROUP(IndicatingSound) {
 	U32 freq;
 	U32 onInterval; // unit: 10msec
 	U32 volume;
-	IndicatingSound* sound;
+	IndicatingSound sound;
 	void setup() {
 		freq = 1300;
 		onInterval = 10; // unit: 10msec
 		volume = 10;
-		sound = new IndicatingSound;
-		IndicatingSound_create(sound, freq, onInterval, volume);
-		BuzzerStub_init();
+		IndicatingSound_create(&sound, freq, onInterval, volume);
 	}
 	void teardown(){
-		delete sound;
+		BuzzerStub_init();
 	}
 };
 
@@ -34,7 +32,7 @@ TEST(IndicatingSound, NoIndicateAfterInitialization)
 
 TEST(IndicatingSound, OneIndicateAfterTone)
 {
-	IndicatingSound_indicate(sound);
+	IndicatingSound_indicate(&sound);
 	CHECK_EQUAL(BuzzerStub_getLastFrequency(), freq);
 	CHECK_EQUAL(BuzzerStub_getLastOnInterval(), onInterval);
 	CHECK_EQUAL(BuzzerStub_getLastVolume(), volume);

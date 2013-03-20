@@ -1,0 +1,19 @@
+#include "AreaIndicator/Area.h"
+
+void Area_create(Area* area, S32 maxDistance, S32 minDistance, IndicatingSound* sound) {
+	area->maxDistance = maxDistance;
+	area->minDistance = minDistance;
+	area->sound = sound;
+}
+
+BOOL Area_include(Area* area, S32 distance) {
+	if ((area->minDistance <= distance) && (distance <= area->maxDistance)) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}
+
+void Area_indicate(Area* area) {
+	IndicatingSound_indicate(area->sound);
+}

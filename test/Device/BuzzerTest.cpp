@@ -18,6 +18,7 @@ TEST_GROUP(Buzzer) {
 		volume = 10;
 	}
 	void teardown(){
+		BuzzerStub_init();
 	}
 };
 

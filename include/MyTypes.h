@@ -12,4 +12,8 @@ typedef int S32;
 typedef int SINT;
 typedef unsigned int U32;
 
+typedef int BOOL;
+#define TRUE 1
+#define FALSE 0
+
 #endif
