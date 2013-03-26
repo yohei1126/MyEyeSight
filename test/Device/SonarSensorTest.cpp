@@ -15,13 +15,11 @@ TEST_GROUP(SonarSensor) {
 	}
 };
 
-//設定したポートと一致する
 TEST(SonarSensor, MatchSensorPortAfterInitialized)
 {
 	CHECK_EQUAL(SonarSensor_getPort(&sonar), SENSOR_PORT_1);
 }
 
-//スタブから設定した距離がが取得できる
 TEST(SonarSensor, MatchDistanceAfterInitialized)
 {
 	CHECK_EQUAL(SonarSensor_getDistance(&sonar), 100);

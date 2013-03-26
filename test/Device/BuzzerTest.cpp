@@ -22,7 +22,6 @@ TEST_GROUP(Buzzer) {
 	}
 };
 
-//ƒuƒU[‚ğ–Â‚ç‚µ‚½Œã‚ÉŒ‹‰Ê‚ğæ“¾‚·‚é
 TEST(Buzzer, GetParameterAfterTone)
 {
 	Buzzer_tone(freq, onInterval, volume);

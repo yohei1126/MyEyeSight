@@ -17,7 +17,6 @@ CPU ATMEL_AT91SAM7S256
 
   APPMODE appmode1{};
 
-  /* 初期化タスク */
   TASK TaaskInit
   {
     AUTOSTART = TRUE
@@ -30,7 +29,6 @@ CPU ATMEL_AT91SAM7S256
     STACKSIZE = 256;
   };
 
-  /* AreaIndicator タスク */
   TASK TaskAreaIndicator
   {
     AUTOSTART = TRUE
@@ -43,15 +41,13 @@ CPU ATMEL_AT91SAM7S256
     STACKSIZE = 512;
   };
 
-  /* システムタイマカウンタ */
   COUNTER SystemTimerCount
   {
     MAXALLOWEDVALUE = 10000;
-    TICKSPERBASE = 1;		/* 1ティックは 1msec */ 
+    TICKSPERBASE = 1;
     MINCYCLE = 1;
   };
 
-  /* 周アラーム */
   ALARM cyclic_alarm
   {
     COUNTER = SystemTimerCount;
@@ -62,7 +58,7 @@ CPU ATMEL_AT91SAM7S256
     AUTOSTART = TRUE
     {
       ALARMTIME = 1;
-      CYCLETIME = 300;		/* Task1は1秒ごとに起動 */
+      CYCLETIME = 300;
       APPMODE = appmode1;
     };
   };

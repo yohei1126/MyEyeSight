@@ -6,7 +6,6 @@ static U32 _freq = 0;
 static U32 _onInterval = 0;
 static U32 _volume = 0;
 
-/* ‰¹‚ð–Â‚ç‚· */
 void Buzzer_tone(U32 freq, U32 onInterval, U32 volume) {
 	_freq = freq;
 	_onInterval = onInterval;
