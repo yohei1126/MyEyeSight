@@ -6,11 +6,11 @@ void Area_create(Area* area, S32 maxDistance, S32 minDistance, IndicatingSound* 
 	area->sound = sound;
 }
 
-BOOL Area_include(Area* area, S32 distance) {
+int Area_include(Area* area, S32 distance) {
 	if ((area->minDistance <= distance) && (distance <= area->maxDistance)) {
-		return TRUE;
+		return 1;
 	} else {
-		return FALSE;
+		return 0;
 	}
 }
 

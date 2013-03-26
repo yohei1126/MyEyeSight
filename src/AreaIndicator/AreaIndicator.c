@@ -1,5 +1,6 @@
 #include "AreaIndicator/AreaIndicator.h"
 #include <stdio.h>
+#include "MyTypes.h"
 
 static Area* AreaIndicator_findIncludedArea(AreaIndicator* indicator, S32 distance);
 
@@ -26,7 +27,7 @@ Area* AreaIndicator_findIncludedArea(AreaIndicator* indicator, S32 distance) {
 	int i;
 	for (i = 0; i < indicator->currentAreaCount; i++) {
 		Area* area = indicator->areaList[i];
-		if ((area != NULL) && (Area_include(area, distance) == TRUE)) {
+		if ((area != NULL) && (Area_include(area, distance) == 1)) {
 			return area;
 		}
 	}

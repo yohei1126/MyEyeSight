@@ -1,0 +1,69 @@
+#include "implementation.oil"
+
+CPU ATMEL_AT91SAM7S256
+{
+  OS LEJOS_OSEK
+  {
+    STATUS = EXTENDED;
+    STARTUPHOOK = FALSE;
+    ERRORHOOK = FALSE;
+    SHUTDOWNHOOK = FALSE;
+    PRETASKHOOK = FALSE;
+    POSTTASKHOOK = FALSE;
+    USEGETSERVICEID = FALSE;
+    USEPARAMETERACCESS = FALSE;
+    USERESSCHEDULER = FALSE;
+  };
+
+  APPMODE appmode1{};
+
+  /* 初期化タスク */
+  TASK TaaskInit
+  {
+    AUTOSTART = TRUE
+    {
+      APPMODE = appmode1;
+    };
+    PRIORITY = 1;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    STACKSIZE = 256;
+  };
+
+  /* AreaIndicator タスク */
+  TASK TaskAreaIndicator
+  {
+    AUTOSTART = TRUE
+    {
+      APPMODE = appmode1;
+    };
+    PRIORITY = 2;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    STACKSIZE = 512;
+  };
+
+  /* システムタイマカウンタ */
+  COUNTER SystemTimerCount
+  {
+    MAXALLOWEDVALUE = 10000;
+    TICKSPERBASE = 1;		/* 1ティックは 1msec */ 
+    MINCYCLE = 1;
+  };
+
+  /* 周アラーム */
+  ALARM cyclic_alarm
+  {
+    COUNTER = SystemTimerCount;
+    ACTION = ACTIVATETASK
+    {
+      TASK = TaskAreaIndicator;
+    };
+    AUTOSTART = TRUE
+    {
+      ALARMTIME = 1;
+      CYCLETIME = 300;		/* Task1は1秒ごとに起動 */
+      APPMODE = appmode1;
+    };
+  };
+};

@@ -1,16 +1,27 @@
 #include "Device/ISonarSensor.h"
 #include "ecrobot_interface.h"
 
+static U8 port = NXT_PORT_S1;
+
 void SonarSensor_create(SonarSensor* sonar, ESensorPort port) {
 	//U8 port;
 	switch (port) {
 	case SENSOR_PORT_1:
+		port = NXT_PORT_S1;
+		break;
 	case SENSOR_PORT_2:
+		port = NXT_PORT_S2;
+		break;
 	case SENSOR_PORT_3:
+		port = NXT_PORT_S3;
+		break;
 	case SENSOR_PORT_4:
-
+		port = NXT_PORT_S4;
+		break;
+	default:
+		port = NXT_PORT_S1;
+		break;
 	}
-	//ecrobot_init_sonar_sensor(U8 port_id)
 }
 
 ESensorPort SonarSensor_getPort(SonarSensor* sonar){
@@ -18,9 +29,5 @@ ESensorPort SonarSensor_getPort(SonarSensor* sonar){
 }
 
 S32 SonarSensor_getDistance(SonarSensor* sonar) {
-	return sonar->distance;
-}
-
-void SonarSensorStub_setDistance(SonarSensor* sonar, S32 distance) {
-	sonar->distance = distance;
+	return ecrobot_get_sonar_sensor(port);
 }

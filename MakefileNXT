@@ -1,0 +1,32 @@
+# nxtOSEKルートディレクトリ
+NXTOSEK_ROOT = ../../../nxtOSEK
+
+# ターゲット実行形式ファイル名
+TARGET = MyEyeSight
+
+# インクルードパス
+USER_INC_PATH= \
+	$(NXTOSEK_ROOT)/ecrobot/nxtway_gs_balancer \
+	./src \
+
+# ライブラリ
+USER_LIB = nxtway_gs_balancer
+
+# Cソースファイル
+TARGET_SOURCES = \
+  ./platform/nxt/main.c \
+  ./platform/nxt/Device/Buzzer.c \
+  ./platform/nxt/Device/SonarSensor.c \
+  ./src/AreaIndicator/AreaIndicatorFactory.c \
+  ./src/AreaIndicator/Area.c \
+  ./src/AreaIndicator/AreaIndicator.c \
+  ./src/AreaIndicator/IndicatingSound.c \
+  ./src/Device/DeviceFactory.c \
+
+# TOPPERS/ATK1(OSEK)設定ファイル
+TOPPERS_OSEK_OIL_SOURCE = ./platform/nxt/MyEyeSight.oil
+
+# 下記のマクロは変更しない
+O_PATH ?= build
+
+include $(NXTOSEK_ROOT)/ecrobot/ecrobot.mak
